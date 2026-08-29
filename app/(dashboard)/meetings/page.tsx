@@ -8,6 +8,7 @@ export default function MeetingsPage() {
       <MeetingRoom
         roomName="AlumniConnect-General"
         displayName="Alumni Member"
+        email="alumni@example.com"
       />
     </main>
   );
