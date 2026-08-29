@@ -1,0 +1,146 @@
+@import "tailwindcss";
+
+:root {
+  --background: #eef6ff;
+  --foreground: #071426;
+  --surface: rgba(255,255,255,.58);
+  --surface-strong: rgba(255,255,255,.78);
+  --border: rgba(255,255,255,.72);
+  --muted: #64748b;
+}
+
+.dark {
+  --background: #020617;
+  --foreground: #f8fbff;
+  --surface: rgba(255,255,255,.06);
+  --surface-strong: rgba(255,255,255,.09);
+  --border: rgba(255,255,255,.12);
+  --muted: rgba(255,255,255,.48);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  scroll-behavior: smooth;
+  background: var(--background);
+  scrollbar-width: thin;
+  scrollbar-color: #60a5fa transparent;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--foreground);
+  background:
+    radial-gradient(circle at 8% 8%, rgba(56,189,248,.18), transparent 24%),
+    radial-gradient(circle at 92% 12%, rgba(37,99,235,.16), transparent 25%),
+    radial-gradient(circle at 50% 100%, rgba(14,165,233,.10), transparent 28%),
+    linear-gradient(180deg, #f8fbff 0%, #edf6ff 48%, #e8f2ff 100%);
+  transition:
+    background .45s ease,
+    color .35s ease;
+}
+
+.dark body {
+  background:
+    radial-gradient(circle at 8% 8%, rgba(56,189,248,.12), transparent 24%),
+    radial-gradient(circle at 92% 12%, rgba(37,99,235,.16), transparent 25%),
+    radial-gradient(circle at 50% 100%, rgba(14,165,233,.08), transparent 28%),
+    linear-gradient(180deg, #020617 0%, #061329 52%, #020617 100%);
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    linear-gradient(
+      120deg,
+      rgba(255,255,255,.18),
+      transparent 35%,
+      rgba(255,255,255,.06) 65%,
+      transparent
+    );
+  opacity: .7;
+}
+
+.dark body::before {
+  opacity: .22;
+}
+
+::selection {
+  background: rgba(14,165,233,.28);
+  color: inherit;
+}
+
+button,
+a,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background:
+    linear-gradient(180deg, #7dd3fc, #2563eb)
+    padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background:
+    linear-gradient(180deg, #22d3ee, #1d4ed8)
+    padding-box;
+}
+
+.glass {
+  border: 1px solid var(--border);
+  background: var(--surface);
+  backdrop-filter: blur(32px) saturate(170%);
+  -webkit-backdrop-filter: blur(32px) saturate(170%);
+  box-shadow:
+    0 20px 60px rgba(30,64,175,.08),
+    inset 0 1px 0 rgba(255,255,255,.55);
+}
+
+.dark .glass {
+  box-shadow:
+    0 28px 80px rgba(0,0,0,.30),
+    inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+.glass-strong {
+  border: 1px solid var(--border);
+  background: var(--surface-strong);
+  backdrop-filter: blur(36px) saturate(180%);
+  -webkit-backdrop-filter: blur(36px) saturate(180%);
+  box-shadow:
+    0 28px 80px rgba(30,64,175,.11),
+    inset 0 1px 0 rgba(255,255,255,.62);
+}
+
+.dark .glass-strong {
+  box-shadow:
+    0 32px 90px rgba(0,0,0,.38),
+    inset 0 1px 0 rgba(255,255,255,.08);
+}
